@@ -61,16 +61,19 @@ builder.Services.AddAuthentication(options =>
 
 // ✅ CORS (قبل builder.Build)
 var frontendUrls = builder.Environment.IsDevelopment()
-    ? new[] { "http://localhost:3000" }
+    ? new[] { "http://localhost:5174" }
     : new[] { "https://ahmed514essam.vercel.app" };
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins(frontendUrls)
-              .AllowAnyMethod()
-              .AllowAnyHeader()
-              .AllowCredentials());
+        policy.WithOrigins(
+            "http://localhost:5174",
+            "https://ahmed514essam.vercel.app"
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+    );
 });
 
 var app = builder.Build();
@@ -82,7 +85,6 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-// ⚠️ UseCors بعد builder.Build لكن قبل Authentication/Authorization
 app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
