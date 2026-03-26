@@ -14,6 +14,8 @@
         public string WhatsLink { get; set; }
         public string InstagramLink { get; set; }
         public string WhoAmI { get; set; }
+        public string Education { get; set; }
+
         public List<IFormFile> Images { get; set; }
 
     }

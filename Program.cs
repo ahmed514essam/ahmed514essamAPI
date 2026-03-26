@@ -69,7 +69,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins(
             "http://localhost:5174",
-            "https://ahmed514essam.vercel.app"
+            "https://ahmed514essam.vercel.app",
+            "http://localhost:5173",
+            "http://localhost:5175"
         )
         .AllowAnyMethod()
         .AllowAnyHeader()

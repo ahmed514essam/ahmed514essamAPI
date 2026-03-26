@@ -41,6 +41,7 @@ namespace ahmed514essamAPI.Controllers
                 WhatsLink = dto.WhatsLink,
                 InstagramLink = dto.InstagramLink,
                 WhoAmI = dto.WhoAmI,
+                Education = dto.Education,
                 Images = new List<Images>()
             };
             if (dto.Images != null && dto.Images.Count > 0)
@@ -82,6 +83,7 @@ namespace ahmed514essamAPI.Controllers
             about.WhatsLink = dto.WhatsLink;
             about.InstagramLink = dto.InstagramLink;
             about.WhoAmI = dto.WhoAmI;
+            about.Education = dto.Education;
 
             if (dto.DeleteImageIds != null)
             {
