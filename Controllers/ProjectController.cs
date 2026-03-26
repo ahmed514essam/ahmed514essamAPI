@@ -30,6 +30,7 @@ namespace ahmed514essamAPI.Controllers
         {
             var project = new Project
             {
+                Id = dto.Id,
                 Name = dto.Name,
                 SubTitle = dto.SubTitle,
                 Description = dto.Description,
@@ -62,6 +63,7 @@ namespace ahmed514essamAPI.Controllers
             var project = await context.Projects.Include(a => a.Images).FirstOrDefaultAsync(a => a.Id == id);
             if (project == null) return NotFound();
 
+            project.Id = dto.Id;
             project.Name = dto.Name;
             project.SubTitle = dto.SubTitle;
             project.Description = dto.Description;

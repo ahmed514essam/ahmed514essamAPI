@@ -1,7 +1,11 @@
-﻿namespace ahmed514essamAPI.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ahmed514essamAPI.Dtos
 {
     public class UpdateProjectDto
     {
+        [Key]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string SubTitle { get; set; }
         public string Description { get; set; }

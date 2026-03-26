@@ -28,6 +28,7 @@ namespace ahmed514essamAPI.Controllers
         {
             var skill = new Skill
             {
+                    Id = dto.Id,
                 Name = dto.Name,
                 Type = dto.Type,
 
@@ -58,6 +59,7 @@ namespace ahmed514essamAPI.Controllers
             var skill = await context.Skills.Include(a => a.Images).FirstOrDefaultAsync(a => a.Id == id);
             if (skill == null) return NotFound();
 
+            skill.Id = dto.Id;
             skill.Name = dto.Name;
             skill.Type = dto.Type;
            
